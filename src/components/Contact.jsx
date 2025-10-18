@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,11 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init('YOUR_PUBLIC_KEY') // Replace with your EmailJS public key
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -23,23 +29,35 @@ const Contact = () => {
     setSubmitStatus(null)
 
     try {
-      // For GitHub Pages deployment, we'll use Formspree
-      // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      // EmailJS template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'a.ahsan18ahmed@gmail.com', // Your email
+        reply_to: formData.email
+      }
 
-      const result = await response.json()
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        templateParams,
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      )
 
-      if (response.ok) {
-        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
+      if (response.status === 200) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: 'Message sent successfully! I\'ll get back to you soon.' 
+        })
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {
-        setSubmitStatus({ type: 'error', message: result.message || 'Failed to send message. Please try again.' })
+        setSubmitStatus({ 
+          type: 'error', 
+          message: 'Failed to send message. Please try again.' 
+        })
       }
     } catch (error) {
       console.error('Error sending message:', error)

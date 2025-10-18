@@ -45,20 +45,25 @@ git push -u origin main
 base: '/YOUR_REPOSITORY_NAME/',
 ```
 
-### **Step 5: Set Up Contact Form (Formspree)**
+### **Step 5: Set Up Contact Form (EmailJS)**
 
-Since GitHub Pages only hosts static files, we need a service for the contact form:
+Since GitHub Pages only hosts static files, we need EmailJS for the contact form:
 
-1. **Go to [Formspree.io](https://formspree.io/)**
+1. **Go to [EmailJS.com](https://www.emailjs.com/)**
 2. **Sign up** for a free account
-3. **Create a new form**
-4. **Copy your form ID** (looks like: `xpzgkqwe`)
-5. **Update Contact.jsx**:
+3. **Add Gmail service** and connect your account
+4. **Create email template** with your branding
+5. **Get your IDs**: Service ID, Template ID, and Public Key
+6. **Update Contact.jsx** with your actual IDs:
 
 ```javascript
-// Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+// Replace these placeholders with your actual EmailJS IDs
+emailjs.init('user_xxxxxxx') // Your public key
+'YOUR_SERVICE_ID', // Your service ID  
+'YOUR_TEMPLATE_ID', // Your template ID
 ```
+
+**See `EMAILJS_SETUP.md` for detailed instructions.**
 
 ## 🌐 **Your Website Will Be Available At:**
 
@@ -75,19 +80,22 @@ Every time you push to the `main` branch:
 
 ## 📧 **Contact Form Options**
 
-### **Option A: Formspree (Recommended)**
+### **Option A: EmailJS (Recommended)**
+- ✅ **Free tier**: 200 emails/month
+- ✅ **Easy setup**: Just replace IDs in code
+- ✅ **Direct email sending**: No third-party forms
+- ✅ **Professional templates**: Custom HTML emails
+- ✅ **Spam protection**: Built-in filtering
+
+### **Option B: Formspree**
 - ✅ **Free tier**: 50 submissions/month
 - ✅ **Easy setup**: Just replace form ID
 - ✅ **Email notifications**: Get emails when someone contacts you
 - ✅ **Spam protection**: Built-in spam filtering
 
-### **Option B: Netlify Forms**
+### **Option C: Netlify Forms**
 - ✅ **Free tier**: 100 submissions/month
 - ✅ **Better integration**: If you deploy to Netlify instead
-
-### **Option C: EmailJS**
-- ✅ **Free tier**: 200 emails/month
-- ✅ **More customization**: Direct email sending
 
 ## 🚀 **Deployment Commands**
 
