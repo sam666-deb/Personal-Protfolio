@@ -1,4 +1,5 @@
 import React from 'react'
+import profileImage from '../assets/profile-image.jpg'
 
 const Hero = () => {
   return (
@@ -73,11 +74,20 @@ const Hero = () => {
           {/* Right side - Profile image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-cyan-400 relative">
+              <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-cyan-400 relative bg-gradient-to-br from-cyan-100 to-blue-100">
                 <img
-                  src="/My DP.jpg"
+                  src={profileImage}
                   alt="Ahsan Ahmed"
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.error('Image failed to load:', e.target.src);
+                    e.target.style.display = 'none';
+                    // Show fallback content
+                    const fallback = document.createElement('div');
+                    fallback.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-200 to-blue-200 text-cyan-600 font-bold text-2xl';
+                    fallback.textContent = 'AA';
+                    e.target.parentNode.appendChild(fallback);
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 rounded-full"></div>
               </div>
