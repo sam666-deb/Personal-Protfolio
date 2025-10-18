@@ -44,7 +44,7 @@ const Contact = () => {
       // Send email using EmailJS
       const response = await emailjs.send(
         'service_gls7yue', // Your EmailJS service ID
-        'template_contact', // Your EmailJS template ID (needs to be updated)
+        'template_bwp84pc', // Your EmailJS template ID (needs to be updated)
         templateParams,
         'cCRAx4bS5juPE-xkk' // Your EmailJS public key
       )
