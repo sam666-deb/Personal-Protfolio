@@ -39,13 +39,17 @@ const Contact = () => {
         reply_to: formData.email
       }
 
+      console.log('Sending email with params:', templateParams)
+
       // Send email using EmailJS
       const response = await emailjs.send(
-        'service_gls7yue', // Replace with your EmailJS service ID
-        'cCRAx4bS5juPE-xkk', // Replace with your EmailJS template ID
+        'service_gls7yue', // Your EmailJS service ID
+        'template_contact', // Your EmailJS template ID (needs to be updated)
         templateParams,
-        'cCRAx4bS5juPE-xkk' // Replace with your EmailJS public key
+        'cCRAx4bS5juPE-xkk' // Your EmailJS public key
       )
+
+      console.log('EmailJS response:', response)
 
       if (response.status === 200) {
         setSubmitStatus({ 
@@ -63,7 +67,7 @@ const Contact = () => {
       console.error('Error sending message:', error)
       setSubmitStatus({ 
         type: 'error', 
-        message: 'Failed to send message. Please check your connection and try again.' 
+        message: `Failed to send message: ${error.message || 'Please check your EmailJS configuration.'}` 
       })
     } finally {
       setIsSubmitting(false)
