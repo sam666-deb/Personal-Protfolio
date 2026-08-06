@@ -16,6 +16,9 @@ dist-ssr
 public/admin
 tina/__generated__
 
+# Personal notes - kept locally only, not pushed to GitHub
+DEVELOPMENT.md
+
 # Environment variables (IMPORTANT: Never commit these!)
 .env
 .env.local
