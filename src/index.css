@@ -55,10 +55,6 @@ body {
 }
 
 /* Blog post prose */
-.prose-blog {
-  color: inherit;
-}
-
 .prose-blog h1, .prose-blog h2, .prose-blog h3 {
   font-weight: 700;
   margin-top: 1.75em;
