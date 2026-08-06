@@ -34,7 +34,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['scripts/**/*.mjs', 'tina/**/*.js'],
+    files: ['scripts/**/*.mjs'],
     languageOptions: {
       globals: globals.node,
       sourceType: 'module',

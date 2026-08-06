@@ -2,8 +2,7 @@ import { load as parseYaml } from 'js-yaml'
 
 // Loads every markdown file in src/content/blog at build time and turns it
 // into a list of post objects. Add a new .md file there and it shows up here
-// automatically - no registration step needed. Posts can be authored by hand
-// or through the Tina CMS admin UI (/admin) - both write the same format.
+// automatically - no registration step needed.
 const rawPosts = import.meta.glob('/src/content/blog/*.md', {
   query: '?raw',
   import: 'default',
