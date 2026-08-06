@@ -37,7 +37,3 @@ research collaboration, supervision conversations, grad roles, and freelance wor
 - 🐙 [GitHub](https://github.com/sam666-deb)
 - 📫 Contact form: https://sam666-deb.github.io/Personal-Protfolio/#/contact
 
----
-
-*Looking to run, build, or contribute to this repo instead? See [DEVELOPMENT.md](DEVELOPMENT.md)
-for setup, deployment, and blog-authoring instructions.*
