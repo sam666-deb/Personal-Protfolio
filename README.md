@@ -33,7 +33,7 @@ research collaboration, supervision conversations, grad roles, and freelance wor
 
 ## Let's connect
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/sam666-deb)
+- 💼 [LinkedIn](https://www.linkedin.com/in/mdahsanahmedsamdany)
 - 🐙 [GitHub](https://github.com/sam666-deb)
 - 📫 Contact form: https://sam666-deb.github.io/Personal-Protfolio/#/contact
 

@@ -74,7 +74,7 @@ const Hero = () => {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/sam666-deb"
+                href="https://www.linkedin.com/in/mdahsanahmedsamdany"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
