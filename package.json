@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "tina:dev": "tinacms dev -c \"vite\"",
+    "build": "node scripts/build.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
@@ -20,15 +21,18 @@
     "dompurify": "^3.4.13",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "js-yaml": "^5.2.3",
     "marked": "^18.0.9",
     "nodemailer": "^7.0.9",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.18.2",
-    "tailwindcss": "^4.1.14"
+    "tailwindcss": "^4.1.14",
+    "tinacms": "^3.11.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@tinacms/cli": "^2.5.6",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.4",
@@ -39,5 +43,8 @@
     "globals": "^16.4.0",
     "nodemon": "^3.1.10",
     "vite": "^7.1.7"
+  },
+  "overrides": {
+    "posthog-node": "5.48.0"
   }
 }

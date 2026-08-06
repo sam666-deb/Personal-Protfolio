@@ -1,6 +1,9 @@
+import { load as parseYaml } from 'js-yaml'
+
 // Loads every markdown file in src/content/blog at build time and turns it
 // into a list of post objects. Add a new .md file there and it shows up here
-// automatically - no registration step needed.
+// automatically - no registration step needed. Posts can be authored by hand
+// or through the Tina CMS admin UI (/admin) - both write the same format.
 const rawPosts = import.meta.glob('/src/content/blog/*.md', {
   query: '?raw',
   import: 'default',
@@ -12,30 +15,12 @@ function parseFrontmatter(raw) {
   if (!match) return { data: {}, content: raw }
 
   const [, frontmatter, content] = match
-  const data = {}
+  const data = parseYaml(frontmatter) || {}
 
-  for (const line of frontmatter.split(/\r?\n/)) {
-    if (!line.trim()) continue
-    const separatorIndex = line.indexOf(':')
-    if (separatorIndex === -1) continue
-
-    const key = line.slice(0, separatorIndex).trim()
-    let value = line.slice(separatorIndex + 1).trim()
-
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1)
-    } else if (value.startsWith('[') && value.endsWith(']')) {
-      value = value
-        .slice(1, -1)
-        .split(',')
-        .map((item) => item.trim().replace(/^['"]|['"]$/g, ''))
-        .filter(Boolean)
-    }
-
-    data[key] = value
+  // YAML auto-parses unquoted ISO dates into Date objects (e.g. Tina's output) -
+  // normalize back to a plain "YYYY-MM-DD" string either way.
+  if (data.date instanceof Date) {
+    data.date = data.date.toISOString().slice(0, 10)
   }
 
   return { data, content: content.trim() }

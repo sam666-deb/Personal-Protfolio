@@ -1,8 +1,10 @@
 ---
-title: "Welcome to my blog"
-date: "2026-08-06"
-excerpt: "Why I'm starting a blog alongside my portfolio, and what I'll be writing about — Unity, AR/VR, full-stack builds, and lessons from my Master's research."
-tags: [announcement, career]
+title: Welcome to my blog
+date: 2026-08-06T00:00:00.000Z
+excerpt: Why I'm starting a blog alongside my portfolio, and what I'll be writing about — Unity, AR/VR, full-stack builds, and lessons from my Master's research.
+tags:
+  - announcement
+  - career
 ---
 
 Hi, I'm Ahsan — welcome to the first post on my new blog.
@@ -11,11 +13,11 @@ I've spent the last few years moving between two worlds: **Unity/AR/VR developme
 
 This blog is where I'll write about the space in between — things like:
 
-- Building real-time full-stack apps (like [CommuteCast](https://commute-cast-six.vercel.app), a live transit + weather companion)
-- Shipping cross-platform mobile apps with React Native and Expo
-- Unity, AR/VR, and immersive interaction design
-- Notes from coursework and research as I explore AI/ML and HCI more deeply
-- Practical write-ups on tools, bugs, and decisions — the kind of post I wish I'd found when I was stuck
+* Building real-time full-stack apps (like [CommuteCast](https://commute-cast-six.vercel.app), a live transit + weather companion)
+* Shipping cross-platform mobile apps with React Native and Expo
+* Unity, AR/VR, and immersive interaction design
+* Notes from coursework and research as I explore AI/ML and HCI more deeply
+* Practical write-ups on tools, bugs, and decisions — the kind of post I wish I'd found when I was stuck
 
 ## Why now?
 

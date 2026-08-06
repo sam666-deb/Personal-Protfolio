@@ -12,6 +12,7 @@ Live site: **https://sam666-deb.github.io/Personal-Protfolio/**
 - Tailwind CSS v4 (with a class-based dark mode toggle)
 - React Router (`HashRouter`, so it works on GitHub Pages with no server config)
 - `marked` + `DOMPurify` to render blog posts written in Markdown
+- **TinaCMS** — optional visual editor for writing posts without touching Markdown or git (see below)
 - EmailJS for the contact form
 - GitHub Actions → GitHub Pages for hosting (free, zero servers to maintain)
 
@@ -20,6 +21,8 @@ Live site: **https://sam666-deb.github.io/Personal-Protfolio/**
 ```bash
 npm install
 npm run dev       # start the dev server
+npm run tina:dev  # start the dev server *with* the TinaCMS editor at /admin (local mode,
+                   # no TinaCloud account needed - saves straight to your local files)
 npm run build     # production build to dist/
 npm run preview   # preview the production build locally
 ```
@@ -27,19 +30,53 @@ npm run preview   # preview the production build locally
 ## Project structure
 
 ```
+tina/config.js    # TinaCMS schema - defines the fields shown in the /admin editor
 src/
   components/     # Hero, About, Skills, Projects, Research, Experience, Education, Contact, Navigation
   pages/          # BlogList.jsx, BlogPost.jsx
   content/blog/   # blog posts, one Markdown file per post
   lib/blog.js     # loads + parses the Markdown files at build time
-  hooks/useTheme.jsx   # light/dark theme context
+  hooks/useTheme.js    # light/dark theme hook
+  context/ThemeContext.js
+  components/ThemeProvider.jsx
 ```
 
 ## ✍️ Writing a new blog post
 
-Blog posts are plain Markdown files in `src/content/blog/`. There's no CMS, database, or
-external account involved — you write a file, commit it, and GitHub Actions rebuilds and
-redeploys the whole site automatically on every push to `main`.
+There are two ways to write posts. Both end up as the same Markdown files in
+`src/content/blog/`, so you can mix and match freely.
+
+### Option A: the visual editor (TinaCMS) — no Markdown, no git required
+
+Once TinaCMS is set up (one-time setup below), go to `/admin` on the live site
+(`https://sam666-deb.github.io/Personal-Protfolio/admin/index.html`), log in with GitHub, and
+you get a form-based editor: title, date, excerpt, tags, and a rich-text body field. Hit
+**Save**, and Tina commits the change directly to this repo on your behalf — GitHub Actions
+then rebuilds and redeploys automatically, exactly like a normal push. You never open a
+terminal or write a `.md` file by hand.
+
+**One-time setup (you'll need to do this yourself — it involves your own accounts):**
+
+1. Go to **[app.tina.io](https://app.tina.io)** and sign up for a free account.
+2. Create a new project and connect it to this GitHub repo
+   (`sam666-deb/Personal-Protfolio`) — this installs Tina's GitHub App on the repo so it's
+   allowed to commit changes.
+3. In the Tina Cloud dashboard for this project, copy the **Client ID** and generate a
+   **Read Only Token**.
+4. In this GitHub repo, go to **Settings → Secrets and variables → Actions** and add two
+   repository secrets:
+   - `TINA_CLIENT_ID` — the Client ID from step 3
+   - `TINA_TOKEN` — the token from step 3
+5. Push anything to `main` (or re-run the last workflow run from the **Actions** tab) — the
+   next deploy will build the CMS into `/admin` automatically.
+
+Until these secrets are added, the site builds and deploys completely normally — `/admin`
+just won't exist yet. Nothing breaks in the meantime.
+
+### Option B: write Markdown by hand and push
+
+No CMS, database, or external account involved — you write a file, commit it, and GitHub
+Actions rebuilds and redeploys automatically on every push to `main`.
 
 **1. Scaffold a new post:**
 
