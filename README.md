@@ -1,13 +1,13 @@
 # Hi, I'm Ahsan Ahmed 👋
 
 Full-Stack Developer & Unity / AR-VR Specialist, currently completing my **Master of
-Information Technology and Systems** at the University of Tasmania, on top of a Computer
+Information Technology and Systems** at the **University of Tasmania**, on top of a Computer
 Science and Engineering background.
 
 I like building at the intersection of immersive interaction and real-time software — places
 where good engineering directly shapes how something feels to use. That spans full-stack web
 and mobile apps (React, React Native, Node.js, MongoDB, Convex) and Unity/AR-VR development,
-including two years training and mentoring students in Unity and game design at a university
+including two years training and mentoring students in SUnity and game design at a university
 AR/VR lab.
 
 **🌐 Portfolio:** https://sam666-deb.github.io/Personal-Protfolio/
@@ -17,7 +17,6 @@ AR/VR lab.
 
 - **[CommuteCast](https://github.com/sam666-deb/CommuteCast)** — a full-stack commute
   companion combining live PTV transit data with weather, deployed as a PWA
-  ([live demo](https://commute-cast-six.vercel.app))
 - **[Zulibo](https://github.com/sam666-deb/Zulibo)** — a real-time mobile chat app with
   messaging, stories, and voice & video calling (React Native/Expo + Node/MongoDB)
 - **TODO App** — a cross-platform task manager with real-time sync via Convex
