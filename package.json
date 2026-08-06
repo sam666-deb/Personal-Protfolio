@@ -10,17 +10,21 @@
     "preview": "vite preview",
     "server": "node server.js",
     "server:dev": "nodemon server.js",
-    "dev:full": "concurrently \"npm run server:dev\" \"npm run dev\""
+    "dev:full": "concurrently \"npm run server:dev\" \"npm run dev\"",
+    "new:post": "node scripts/new-post.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.14",
     "cors": "^2.8.5",
+    "dompurify": "^3.4.13",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "marked": "^18.0.9",
     "nodemailer": "^7.0.9",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.18.2",
     "tailwindcss": "^4.1.14"
   },
   "devDependencies": {

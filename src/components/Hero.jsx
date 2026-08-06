@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import profileImage from '../assets/profile-image.jpg'
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -16,17 +17,22 @@ const Hero = () => {
           {/* Left side - Text content */}
           <div className="text-center lg:text-left">
             <div className="mb-6">
+              <p className="inline-block text-cyan-300 text-sm font-semibold tracking-wide uppercase mb-4 px-3 py-1 rounded-full border border-cyan-400/30 bg-cyan-400/5">
+                Open to grad roles, freelance & research collaboration
+              </p>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                 Hi, I'm{' '}
                 <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Ahsan Ahmed</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold text-cyan-200 mb-6">
-                Unity Game Developer & AR/VR Specialist
+                Full-Stack Developer & Unity / AR-VR Specialist
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Passionate about technology, innovation, and creating meaningful solutions. 
-                Currently pursuing Master of Information Technology and Systems at University of Tasmania, 
-                with extensive experience in Unity development, AR/VR, and software engineering.
+                I turn ideas into interactive experiences — from real-time full-stack apps
+                (React, React Native, Node.js) to Unity-powered AR/VR. Currently completing my
+                Master of Information Technology and Systems at the University of Tasmania,
+                building on a Computer Science background and hands-on experience training
+                other developers in Unity and game design.
               </p>
             </div>
 
@@ -36,7 +42,7 @@ const Hero = () => {
                 href="#projects"
                 className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
-                View My Games
+                View My Work
               </a>
               <a
                 href="#contact"
@@ -44,6 +50,15 @@ const Hero = () => {
               >
                 Get In Touch
               </a>
+              <Link
+                to="/blog"
+                className="text-cyan-300 px-8 py-3 rounded-lg font-semibold hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                Read the Blog
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
             </div>
 
             {/* Social links */}

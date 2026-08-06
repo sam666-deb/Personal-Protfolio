@@ -1,114 +1,115 @@
-# 👋 Hi, I'm Ahsan Ahmed
+# Ahsan Ahmed — Portfolio & Blog
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Unity%20Developer-000000?style=for-the-badge&logo=unity&logoColor=white" alt="Unity Developer" />
-  <img src="https://img.shields.io/badge/AR/VR%20Specialist-FF6B6B?style=for-the-badge&logo=oculus&logoColor=white" alt="AR/VR Specialist" />
-  <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-</div>
+My personal portfolio: a React + Vite site deployed for free on GitHub Pages via GitHub Actions,
+covering my background as a Full-Stack Developer and Unity/AR-VR Specialist, and a built-in
+markdown-powered blog.
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=06B6D4&center=true&vCenter=true&width=435&lines=Unity+Game+Developer;AR%2FVR+Specialist;Full+Stack+Developer;Tech+Enthusiast" alt="Typing SVG" />
-</div>
+Live site: **https://sam666-deb.github.io/Personal-Protfolio/**
 
+## Tech stack
+
+- React 19 + Vite 7
+- Tailwind CSS v4 (with a class-based dark mode toggle)
+- React Router (`HashRouter`, so it works on GitHub Pages with no server config)
+- `marked` + `DOMPurify` to render blog posts written in Markdown
+- EmailJS for the contact form
+- GitHub Actions → GitHub Pages for hosting (free, zero servers to maintain)
+
+## Getting started
+
+```bash
+npm install
+npm run dev       # start the dev server
+npm run build     # production build to dist/
+npm run preview   # preview the production build locally
+```
+
+## Project structure
+
+```
+src/
+  components/     # Hero, About, Skills, Projects, Research, Experience, Education, Contact, Navigation
+  pages/          # BlogList.jsx, BlogPost.jsx
+  content/blog/   # blog posts, one Markdown file per post
+  lib/blog.js     # loads + parses the Markdown files at build time
+  hooks/useTheme.jsx   # light/dark theme context
+```
+
+## ✍️ Writing a new blog post
+
+Blog posts are plain Markdown files in `src/content/blog/`. There's no CMS, database, or
+external account involved — you write a file, commit it, and GitHub Actions rebuilds and
+redeploys the whole site automatically on every push to `main`.
+
+**1. Scaffold a new post:**
+
+```bash
+npm run new:post -- "My Post Title"
+```
+
+This creates `src/content/blog/my-post-title.md` pre-filled with frontmatter:
+
+```markdown
+---
+title: "My Post Title"
+date: "2026-08-06"
+excerpt: "One or two sentences describing this post — shown on the blog list page."
+tags: [tag1, tag2]
 ---
 
-## 🎮 About Me
+Start writing here. Standard Markdown is supported: **bold**, _italics_, [links](https://example.com),
+lists, and code blocks.
+```
 
-I'm a passionate **Unity Game Developer** and **AR/VR Specialist** currently pursuing my Master of Information Technology and Systems at the University of Tasmania. With a strong foundation in computer science and software engineering, I specialize in creating immersive gaming experiences and interactive applications.
+You can also just create the `.md` file by hand — the frontmatter format above is all the
+loader expects (`title`, `date`, `excerpt`, `tags` are recognized; anything else is ignored).
 
-### 🚀 What I Do
-- **🎯 Unity 3D Development** - Creating engaging games and interactive experiences
-- **🥽 AR/VR Applications** - Building immersive augmented and virtual reality solutions
-- **💻 Full-Stack Development** - React, Node.js, and modern web technologies
-- **👨‍🏫 Teaching** - Training students in Unity development and game design principles
+**2. Preview it:**
 
----
+```bash
+npm run dev
+```
 
-## 🛠️ Tech Stack
+Go to `http://localhost:5173/#/blog` — new posts appear automatically, sorted by date. No
+registration or manifest file to update.
 
-### Game Development
-![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white)
-![Blender](https://img.shields.io/badge/Blender-F5792A?style=flat-square&logo=blender&logoColor=white)
-![ARCore](https://img.shields.io/badge/ARCore-4285F4?style=flat-square&logo=google&logoColor=white)
+**3. Publish it:**
 
-### Web Development
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+```bash
+git add src/content/blog/my-post-title.md
+git commit -m "Add blog post: My Post Title"
+git push
+```
 
-### Tools & Technologies
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)
+GitHub Actions picks up the push, runs `npm run build`, and deploys the result to GitHub
+Pages — usually live within a minute or two. Check progress under the repo's **Actions** tab.
 
----
+That's the entire publishing workflow: **write Markdown → push → live.** No hosting costs
+beyond what you already have (GitHub Pages is free for public repos).
 
-## 🎯 Current Focus
+### Markdown tips for posts
 
-- 🎓 **Master's Degree** - Information Technology and Systems at University of Tasmania
-- 🎮 **Unity Projects** - Developing innovative games and AR/VR experiences
-- 🌐 **Portfolio Website** - Showcasing my work and skills
-- 📚 **Continuous Learning** - Staying updated with latest game development trends
+- Internal links to specific portfolio sections (e.g. `#contact`) don't work reliably from
+  inside post content because the site uses hash-based routing for the blog itself — link to
+  external URLs freely, but for "get in touch" style calls to action, rely on the button
+  already provided at the bottom of every post.
+- Images: drop them in `public/` and reference them as `/your-image.png` (respecting the
+  `base: '/Personal-Protfolio/'` path from `vite.config.js`), or link to an externally hosted
+  image.
 
----
+## Deployment
 
-## 📊 GitHub Stats
+Deployment is handled by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml): every
+push to `main` triggers a build and publish to GitHub Pages. No manual deploy step, no hosting
+bill — this is the free tier working as intended.
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sam666-deb&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" />
-</div>
+If you ever want a custom domain (e.g. `ahsanahmed.dev`) instead of the `github.io` URL, GitHub
+Pages supports that too: buy a domain from any registrar (~$10–15/year), add a `CNAME` file to
+`public/`, and point the domain's DNS at GitHub Pages. Everything else about this setup stays
+the same.
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sam666-deb&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-</div>
+## Local email setup (contact form)
 
----
-
-## 🏆 Achievements
-
-- 🎓 **Academic Excellence** - Pursuing Master's in IT & Systems
-- 🎮 **Unity Expertise** - Certified Unity Developer
-- 👨‍🏫 **Teaching Experience** - Unity Development Trainer
-- 🌏 **Global Perspective** - Based in Australia, serving clients worldwide
-
----
-
-## 🌐 Portfolio & Links
-
-<div align="center">
-  <a href="https://sam666-deb.github.io/Personal-Protfolio/" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
-  </a>
-  <a href="https://www.linkedin.com/in/sam666-deb" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="mailto:a.ahsan18ahmed@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-</div>
-
----
-
-## 💼 Let's Connect!
-
-I'm always interested in new opportunities and collaborations. Whether you're looking for:
-- 🎮 **Game Development** projects
-- 🥽 **AR/VR Solutions** 
-- 💻 **Web Development** work
-- 👨‍🏫 **Unity Training** sessions
-
-Feel free to reach out!
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" alt="Footer" />
-</div>
-
----
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=sam666-deb&style=flat-square&color=blue" alt="Profile Views" />
-</div>
+The contact form uses [EmailJS](https://www.emailjs.com/) directly from the browser — no backend
+required for the deployed site. `server.js` in this repo is an optional local Node/Express +
+Nodemailer alternative for local development; it's not used in the GitHub Pages deployment.
