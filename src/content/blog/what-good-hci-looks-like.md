@@ -1,6 +1,6 @@
 ---
 title: "What \"good\" HCI actually looks like in a product you use every day"
-date: "2026-08-07"
+date: "2026-08-11"
 excerpt: "HCI sounds academic until you notice how many times a day a well-designed interaction quietly saves you from frustration — and how few people notice when it works."
 tags: [HCI, design, ux]
 ---
