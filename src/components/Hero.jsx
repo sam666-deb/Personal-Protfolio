@@ -37,7 +37,7 @@ const Hero = () => {
             </div>
 
             {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <a
                 href="#projects"
                 className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -49,6 +49,17 @@ const Hero = () => {
                 className="border-2 border-cyan-400 text-cyan-300 px-8 py-3 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-cyan-600 hover:to-blue-600 hover:text-white hover:border-transparent transition-all duration-200"
               >
                 Get In Touch
+              </a>
+              <a
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-cyan-400/40 text-cyan-300 px-8 py-3 rounded-lg font-semibold hover:border-cyan-400 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                Download Resume
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
               </a>
               <Link
                 to="/blog"
