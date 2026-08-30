@@ -4,6 +4,15 @@ import Reveal from './Reveal'
 const Projects = () => {
   const projects = [
     {
+      title: "Pulsly",
+      description: "Browser-based video calling with no accounts or downloads — share a link and start a call. Real NAT traversal via a self-hosted TURN relay, in-browser recording, screen sharing, and optional Google sign-in for permanent rooms — all on a $0/year architecture.",
+      technologies: ["React", "TypeScript", "WebRTC", "Cloudflare Workers", "Node.js"],
+      githubUrl: "https://github.com/sam666-deb/pulsly",
+      liveUrl: "https://pulsly.samdanymdahsanahmed.workers.dev",
+      features: ["Full-mesh WebRTC calls (up to 4 people)", "Self-hosted TURN relay for real NAT traversal", "In-browser recording (canvas + Web Audio, no server)", "Spotlight layout & screen sharing"],
+      status: "Live"
+    },
+    {
       title: "CommuteCast",
       description: "A full-stack commute companion combining live PTV transit data (train, tram, bus, V/Line) with weather — installable as a PWA with light/dark mode.",
       technologies: ["React", "Vite", "Express", "Node.js", "PWA"],
