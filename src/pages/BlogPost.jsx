@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { getPostBySlug, formatDate, estimateReadingTime } from '../lib/blog'
+import Comments from '../components/Comments'
 
 const BlogPost = () => {
   const { slug } = useParams()
@@ -78,6 +79,8 @@ const BlogPost = () => {
             Get in touch
           </Link>
         </footer>
+
+        <Comments term={post.slug} />
       </div>
     </article>
   )
