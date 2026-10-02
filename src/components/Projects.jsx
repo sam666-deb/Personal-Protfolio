@@ -4,6 +4,14 @@ import Reveal from './Reveal'
 const Projects = () => {
   const projects = [
     {
+      title: "PhotoFix",
+      description: "An AI photo enhancement tool that detects seven kinds of defects — under/over-exposure, low contrast, harsh shadows, color casts, noise, and blur — and fixes only what's actually wrong, with every model benchmarked against a classical baseline and a guardrail against over-editing.",
+      technologies: ["Python", "PyTorch", "FastAPI", "Computer Vision", "Docker"],
+      githubUrl: "https://github.com/sam666-deb/PhotoFix",
+      features: ["Neural defect analyzer (dual-view EfficientNet-B0)", "Learned \"Pro\" retouching style (Image-Adaptive 3D LUT, trained on MIT-Adobe FiveK)", "Neural denoise & deblur (NAFNet, full-resolution tiling)", "Output guardrail + blind A/B human evaluation"],
+      status: "AI/ML"
+    },
+    {
       title: "Pulsly",
       description: "Browser-based video calling with no accounts or downloads — share a link and start a call. Real NAT traversal via a self-hosted TURN relay, in-browser recording, screen sharing, and optional Google sign-in for permanent rooms — all on a $0/year architecture.",
       technologies: ["React", "TypeScript", "WebRTC", "Cloudflare Workers", "Node.js"],
@@ -81,6 +89,7 @@ const Projects = () => {
 
   const getStatusColor = (status) => {
     const colors = {
+      'AI/ML': 'bg-pink-100 text-pink-800 dark:bg-pink-500/15 dark:text-pink-300',
       'Live': 'bg-green-100 text-green-800 dark:bg-green-500/15 dark:text-green-300',
       'Full-Stack': 'bg-blue-100 text-blue-800 dark:bg-blue-500/15 dark:text-blue-300',
       'Mobile': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-500/15 dark:text-indigo-300',
