@@ -121,6 +121,41 @@ body {
   margin: 1.25em 0;
 }
 
+.prose-blog table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.92em;
+}
+
+.prose-blog th, .prose-blog td {
+  padding: 0.55em 0.9em;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.dark .prose-blog th, .dark .prose-blog td {
+  border-color: #334155;
+}
+
+.prose-blog th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.dark .prose-blog th {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+.prose-blog td {
+  font-variant-numeric: tabular-nums;
+}
+
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {
