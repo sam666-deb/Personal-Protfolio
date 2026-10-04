@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Navigation from './components/Navigation'
+import Analytics from './components/Analytics'
 import BlogList from './pages/BlogList'
 import BlogPost from './pages/BlogPost'
 
@@ -40,6 +41,7 @@ function Home() {
 function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+      <Analytics />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
