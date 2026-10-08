@@ -4,6 +4,15 @@ import Reveal from './Reveal'
 const Projects = () => {
   const projects = [
     {
+      title: "Plonko",
+      description: "A 3D knockout arena game that runs entirely in the browser — dash, block, and avoid a floor that falls away in real time, as four skeletons with their own weapons. Play an 8-level solo campaign against an adaptive bot, or share a link for instant multiplayer with no accounts.",
+      technologies: ["React Three Fiber", "Three.js", "Rapier", "TypeScript", "WebSockets"],
+      githubUrl: "https://github.com/sam666-deb/Plonko",
+      liveUrl: "https://plonko.samdanymdahsanahmed.workers.dev",
+      features: ["8-level solo campaign with adaptive bot AI", "Real-time multiplayer via client-relay netcode", "Deterministic hazards — synced without transmitting the world", "Fully synthesized audio, zero shipped audio files"],
+      status: "Game"
+    },
+    {
       title: "PhotoFix",
       description: "An AI photo enhancement tool that detects seven kinds of defects — under/over-exposure, low contrast, harsh shadows, color casts, noise, and blur — and fixes only what's actually wrong, with every model benchmarked against a classical baseline and a guardrail against over-editing.",
       technologies: ["Python", "PyTorch", "FastAPI", "Computer Vision", "Docker"],
@@ -89,6 +98,7 @@ const Projects = () => {
 
   const getStatusColor = (status) => {
     const colors = {
+      'Game': 'bg-violet-100 text-violet-800 dark:bg-violet-500/15 dark:text-violet-300',
       'AI/ML': 'bg-pink-100 text-pink-800 dark:bg-pink-500/15 dark:text-pink-300',
       'Live': 'bg-green-100 text-green-800 dark:bg-green-500/15 dark:text-green-300',
       'Full-Stack': 'bg-blue-100 text-blue-800 dark:bg-blue-500/15 dark:text-blue-300',
